@@ -1,0 +1,57 @@
+@import "./blocks/header.css";
+@import "./blocks/room.css";
+@import "./blocks/chat.css";
+@import "./blocks/users.css";
+@import "./blocks/form.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  background: #c3c3c3;
+}
+
+@media (max-width: 481px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  cursor: pointer;
+}

@@ -1,0 +1,48 @@
+.form {
+  display: flex;
+  align-items: center;
+  background-color: #e5e5e5;
+  box-shadow: 0px 0 6px #77778b;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+.form__text-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1.75rem;
+  background: none;
+  padding-right: 2rem;
+  color: #000;
+}
+
+.form__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.form__buttons button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.form__file-input-label {
+  cursor: pointer;
+}
+
+.form__file-input-label input {
+  display: none;
+}
+
+.form__upload-btn {
+  display: flex;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #705ed5;
+}
+
+.form__sent-btn {
+  display: flex;
+  font-size: 2.8rem;
+  color: #705ed5;
+}

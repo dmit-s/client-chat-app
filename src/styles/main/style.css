@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  background: #c3c3c3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.enter {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.enter__title {
+  font-weight: 700;
+  font-size: 4rem;
+  color: #322939;
+  margin-bottom: 2rem;
+}
+
+.enter__btn {
+  background-color: #322939;
+  padding: 2rem;
+  text-align: center;
+  max-width: 120px;
+  width: 100%;
+  border-radius: 12px;
+  color: #f1f1f1;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.enter__btn:hover {
+  background-color: #42364b;
+  color: #e7e6e6;
+}
