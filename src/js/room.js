@@ -98,7 +98,14 @@ async function renderNewMessage(messageData) {
     sender: { id, name, avatar },
   } = messageData;
 
-  const image = pic && (await base64ToImage(pic));
+  let imageEl = null;
+
+  if (pic) {
+    const image = await base64ToImage(pic);
+    imageEl = `<div class="chat__image">
+      <img src="${image.src}" alt="some pic" />
+    </div>`;
+  }
 
   messagesContainer.insertAdjacentHTML(
     "beforeend",
@@ -116,14 +123,12 @@ async function renderNewMessage(messageData) {
   </div>
       <div class="chat__message ${id === userId ? "you" : ""}">
         ${text ? `<div class="chat__text">${text}</div>` : ""}
-        ${
-          image
-            ? `<div class="chat__image"><img src="${image.src}" alt="some pic" /></div>`
-            : ""
-        }
+        ${imageEl || ""}
       </div>
     </div>`
   );
+
+  scrollToBottom();
 }
 
 async function renderMessages() {
@@ -133,7 +138,14 @@ async function renderMessages() {
       sender: { id, name, avatar },
     } = item;
 
-    const image = pic && (await base64ToImage(pic));
+    let imageEl = null;
+
+    if (pic) {
+      const image = await base64ToImage(pic);
+      imageEl = `<div class="chat__image">
+          <img src="${image.src}" alt="some pic" />
+        </div>`;
+    }
 
     return `
     <div class="chat__item">
@@ -151,13 +163,7 @@ async function renderMessages() {
           ${text}
         </div>
 
-        ${
-          image
-            ? `<div class="chat__image">
-          <img src="${image.src}" alt="some pic" />
-        </div>`
-            : ""
-        }
+        ${imageEl || ""}
       </div>
     </div>
 
@@ -167,6 +173,7 @@ async function renderMessages() {
   const markup = await Promise.all(promises);
 
   messagesContainer.innerHTML = markup.join("");
+  scrollToBottom();
 }
 
 socket.on("newUser", (user) => {
@@ -184,9 +191,6 @@ socket.on("users", (users) => {
 socket.on("messages", (messages) => {
   messagesData = messages;
   renderMessages();
-  setTimeout(() => {
-    scrollToBottom();
-  }, 50);
 });
 
 socket.on("leaveUser", (leaveUserId) => {
@@ -197,10 +201,6 @@ socket.on("leaveUser", (leaveUserId) => {
 
 socket.on("newMessage", (newMessage) => {
   renderNewMessage(newMessage);
-
-  setTimeout(() => {
-    scrollToBottom();
-  }, 50);
 });
 
 function uploadImage(e) {

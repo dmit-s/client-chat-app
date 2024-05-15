@@ -11,8 +11,6 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
   margin: 0;
   font-size: 1.6rem;
@@ -42,6 +40,15 @@ button {
   outline: 0;
   background: none;
   cursor: pointer;
+}
+
+.content {
+  flex: 1 1 auto;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .enter {
